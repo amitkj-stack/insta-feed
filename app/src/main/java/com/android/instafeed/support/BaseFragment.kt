@@ -18,9 +18,6 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         super.onAttach(context)
         communicator = context as FragmentCommunicator
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

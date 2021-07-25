@@ -34,7 +34,7 @@ class PhotoRepositoryImpl constructor(
             if (response?.stat == "ok") {
                 appPrefs.lastSearchedKeyword = query
                 Resource.Success(response)
-            }else
+            } else
                 Resource.Error(parseError(retrofitResponse))
         } else {
             // Retrofit call executed but response wasn't in the 200s

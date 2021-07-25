@@ -23,7 +23,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     // CONFIGURATION ---
 
     private fun configureAndShowFragment() {
-        var fragment = supportFragmentManager.findFragmentById(R.id.activity_main_container) as SearchPhotoFragment?
+        var fragment =
+            supportFragmentManager.findFragmentById(R.id.activity_main_container) as SearchPhotoFragment?
         if (fragment == null) {
             fragment = SearchPhotoFragment()
             supportFragmentManager.beginTransaction()
@@ -36,7 +37,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         menuInflater.inflate(R.menu.menu_search, menu)
         val searchItem = menu?.findItem(R.id.search)
         val searchView = searchItem?.actionView as? android.widget.SearchView
-        searchView?.maxWidth = Integer.MAX_VALUE;
+        searchView?.maxWidth = Integer.MAX_VALUE
         searchView?.queryHint = getString(R.string.search)
         return true
     }

@@ -49,13 +49,13 @@ class PhotoDataSource(
         scope.launch(getJobErrorHandler() + supervisorJob) {
             val result = repository.search(query, perPage, page)
             retryQuery = null
-            if(result is Resource.Success) {
+            if (result is Resource.Success) {
                 result.response?.photos?.photo?.let { callback(it) }
-                if(result.response?.photos?.photo?.isEmpty() == true) {
+                if (result.response?.photos?.photo?.isEmpty() == true) {
                     messageLiveData.postValue("No Images Found")
                 }
                 networkState.postValue(NetworkState.SUCCESS)
-            } else if(result is Resource.Error){
+            } else if (result is Resource.Error) {
                 networkState.postValue(NetworkState.FAILED)
                 messageLiveData.postValue(result.message!!)
                 callback(emptyList())

@@ -5,7 +5,6 @@ import com.android.instafeed.di.appModule
 import com.android.instafeed.support.Utils
 import com.android.instafeed.support.Utils.isNetworkAvailable
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class MyApplication : Application() {

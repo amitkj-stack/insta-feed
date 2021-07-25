@@ -1,10 +1,11 @@
 package com.android.instafeed.ui
 
 
-import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +18,6 @@ import com.android.instafeed.support.OnItemClickListener
 import com.android.instafeed.support.RecyclerTouchListener
 import com.android.instafeed.support.SpacesItemDecoration
 import com.android.instafeed.support.Utils.hideKeyboard
-import com.android.instafeed.support.Utils.showSnackMessage
 import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
@@ -40,7 +40,8 @@ class SearchPhotoFragment : BaseFragment<FragmentSearchPhotoBinding>(), OnItemCl
     }
 
     private fun initAdapter() {
-        val spanCount = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 3 else 5
+        val spanCount =
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) 3 else 5
         listAdapter = ImageListAdapter { viewModel.refreshAllList() }
         binding.recyclerView.layoutManager = GridLayoutManager(activity, spanCount)
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.dp_4)

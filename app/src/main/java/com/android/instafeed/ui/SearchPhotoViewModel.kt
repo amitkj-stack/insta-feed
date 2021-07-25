@@ -10,16 +10,17 @@ import com.android.instafeed.network.NetworkState
 import com.android.instafeed.support.AppConstants
 import com.android.instafeed.support.BaseViewModel
 
-class SearchPhotoViewModel (
+class SearchPhotoViewModel(
     repository: PhotoRepository
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private var repository: PhotoRepository = repository
     private val photoDataSource = PhotoDataSourceFactory(repository = repository, scope = ioScope)
 
     // OBSERVABLES ---
     val photoList = LivePagedListBuilder(photoDataSource, pagedListConfig).build()
-    val networkState: LiveData<NetworkState>? = switchMap(photoDataSource.source) { it.getNetworkState() }
+    val networkState: LiveData<NetworkState>? =
+        switchMap(photoDataSource.source) { it.getNetworkState() }
     val messageLiveData: LiveData<String?> = switchMap(photoDataSource.source) { it.getMessage() }
     // PUBLIC API ---
 
@@ -56,9 +57,10 @@ class SearchPhotoViewModel (
 
     // UTILS ---
 
-    val pagedListConfig : PagedList.Config get() = PagedList.Config.Builder()
-        .setInitialLoadSizeHint(AppConstants.PAGE_SIZE)
-        .setEnablePlaceholders(false)
-        .setPageSize(AppConstants.LOAD_SIZE)
-        .build()
+    val pagedListConfig: PagedList.Config
+        get() = PagedList.Config.Builder()
+            .setInitialLoadSizeHint(AppConstants.PAGE_SIZE)
+            .setEnablePlaceholders(false)
+            .setPageSize(AppConstants.LOAD_SIZE)
+            .build()
 }

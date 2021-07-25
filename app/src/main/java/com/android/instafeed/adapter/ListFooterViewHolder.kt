@@ -14,7 +14,8 @@ class ListFooterViewHolder(private val binding: ItemListFooterBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(status: NetworkState?) {
-        binding.progressBar.visibility = if (status == NetworkState.RUNNING) VISIBLE else View.INVISIBLE
+        binding.progressBar.visibility =
+            if (status == NetworkState.RUNNING) VISIBLE else View.INVISIBLE
         binding.txtError.visibility = if (status == NetworkState.FAILED) VISIBLE else View.INVISIBLE
     }
 

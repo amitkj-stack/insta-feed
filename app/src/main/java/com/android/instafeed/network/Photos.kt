@@ -1,7 +1,7 @@
 package com.android.instafeed.network
 
 import com.android.instafeed.data.Photo
-import java.util.*
+
 /*
 * https://farm<farm>.staticflickr.com/<server>/<id>_<secret>_m.j
 pg*/

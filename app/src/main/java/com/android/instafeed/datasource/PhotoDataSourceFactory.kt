@@ -6,9 +6,11 @@ import com.android.instafeed.data.Photo
 import com.android.instafeed.data.PhotoRepository
 import kotlinx.coroutines.CoroutineScope
 
-class PhotoDataSourceFactory(private val repository: PhotoRepository,
-                             private var query: String = "",
-                             private val scope: CoroutineScope): DataSource.Factory<Int, Photo>() {
+class PhotoDataSourceFactory(
+    private val repository: PhotoRepository,
+    private var query: String = "",
+    private val scope: CoroutineScope
+) : DataSource.Factory<Int, Photo>() {
 
     val source = MutableLiveData<PhotoDataSource>()
 
@@ -19,7 +21,7 @@ class PhotoDataSourceFactory(private val repository: PhotoRepository,
 
     fun getSource() = source.value
 
-    fun updateQuery(query: String){
+    fun updateQuery(query: String) {
         this.query = query
         getSource()?.refresh()
     }

@@ -2,10 +2,10 @@ package com.android.instafeed.di
 
 import android.content.Context
 import com.android.instafeed.BuildConfig
+import com.android.instafeed.data.AppPrefs
 import com.android.instafeed.data.PhotoRepository
 import com.android.instafeed.data.PhotoRepositoryImpl
 import com.android.instafeed.network.ApiService
-import com.android.instafeed.data.AppPrefs
 import com.android.instafeed.support.Utils.isNetworkAvailable
 import com.android.instafeed.ui.SearchPhotoViewModel
 import com.google.gson.FieldNamingPolicy
@@ -106,7 +106,9 @@ fun getCacheInterceptor(context: Context): Interceptor {
         *  The 'max-stale' attribute is responsible for this behavior.
         *  The 'only-if-cached' attribute indicates to not retrieve new data; fetch the cache only instead.
         */
-            request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
+            request.newBuilder()
+                .header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7)
+                .build()
         // End of if-else statement
 
         // Add the modified request to the chain.

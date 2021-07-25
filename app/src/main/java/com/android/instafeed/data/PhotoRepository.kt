@@ -1,7 +1,6 @@
 package com.android.instafeed.data
 
 
-
 interface PhotoRepository {
     /**
      * Returns a response
