@@ -15,7 +15,6 @@ class MyApplication : Application() {
             Utils.clearDiskCache(this)
         // Start Koin
         startKoin {
-            androidLogger()
             androidContext(this@MyApplication)
             modules(appModule)
         }
