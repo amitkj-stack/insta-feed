@@ -14,12 +14,12 @@ class SearchPhotoViewModel(
     repository: PhotoRepository
 ) : BaseViewModel() {
 
-    private var repository: PhotoRepository = repository
+    var repository: PhotoRepository = repository
     private val photoDataSource = PhotoDataSourceFactory(repository = repository, scope = ioScope)
 
     // OBSERVABLES ---
     val photoList = LivePagedListBuilder(photoDataSource, pagedListConfig).build()
-    val networkState: LiveData<NetworkState>? =
+    val networkState: LiveData<NetworkState> =
         switchMap(photoDataSource.source) { it.getNetworkState() }
     val messageLiveData: LiveData<String?> = switchMap(photoDataSource.source) { it.getMessage() }
     // PUBLIC API ---

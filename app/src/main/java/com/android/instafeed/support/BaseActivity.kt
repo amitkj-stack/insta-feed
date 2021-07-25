@@ -13,7 +13,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<B>(this, layoutId)
+        binding = DataBindingUtil.setContentView(this, layoutId)
     }
 
     override fun frgShowSnackBarMessage(message: String?) {

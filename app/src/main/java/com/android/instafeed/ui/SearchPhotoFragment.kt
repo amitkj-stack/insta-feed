@@ -26,7 +26,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
  */
 class SearchPhotoFragment : BaseFragment<FragmentSearchPhotoBinding>(), OnItemClickListener {
 
-    private val viewModel: SearchPhotoViewModel by viewModel<SearchPhotoViewModel>()
+    private val viewModel: SearchPhotoViewModel by viewModel()
 
     override val layoutId: Int
         get() = R.layout.fragment_search_photo
@@ -121,7 +121,7 @@ class SearchPhotoFragment : BaseFragment<FragmentSearchPhotoBinding>(), OnItemCl
 
     override fun onClick(view: View, position: Int) {
         val newFragment = ShowImageFragment()
-        newFragment.arguments = listAdapter.getUrlBundle(position)
+        newFragment.arguments = listAdapter.buildBundle(position)
         newFragment.show(childFragmentManager, "ShowImageFragment")
     }
 

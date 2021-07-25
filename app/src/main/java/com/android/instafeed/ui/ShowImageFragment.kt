@@ -22,11 +22,13 @@ import com.bumptech.glide.request.target.Target
 class ShowImageFragment : DialogFragment() {
     private lateinit var binding: FragmentShowImageBinding
     private lateinit var url: String
+    private lateinit var title: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
         url = arguments?.getString(AppConstants.PARAM.EXTRA_URL).toString()
+        title = arguments?.getString(AppConstants.PARAM.EXTRA_TITLE).toString()
     }
 
     override fun onCreateView(
@@ -40,12 +42,12 @@ class ShowImageFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             setWidthPercent(90)
         } else {
             setHeightPercent(90)
         }
+        binding.title.text = title
         Glide.with(this)
             .load(url)
             .placeholder(R.drawable.ic_launcher_foreground)

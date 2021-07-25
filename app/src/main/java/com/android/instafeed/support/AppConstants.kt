@@ -6,6 +6,7 @@ object AppConstants {
 
     object PARAM {
         const val EXTRA_URL = "EXTRA_URL"
+        const val EXTRA_TITLE = "EXTRA_TITLE"
     }
 
     object AdapterViewType {

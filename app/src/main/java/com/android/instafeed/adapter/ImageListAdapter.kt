@@ -56,9 +56,11 @@ class ImageListAdapter(private val retry: () -> Unit) :
         notifyItemChanged(super.getItemCount())
     }
 
-    fun getUrlBundle(position: Int): Bundle {
+    fun buildBundle(position: Int): Bundle {
+        val item = getItem(position);
         val bundle = Bundle()
-        bundle.putString(AppConstants.PARAM.EXTRA_URL, getItem(position)?.link)
+        bundle.putString(AppConstants.PARAM.EXTRA_URL, item?.link)
+        bundle.putString(AppConstants.PARAM.EXTRA_TITLE, item?.title)
         return bundle
     }
 

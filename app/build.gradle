@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'BASE_URL', "\"https://api.flickr.com/services/rest/\""
         buildConfigField 'String', 'API_KEY', "\"062a6c0c49e4de1d78497d13a7dbb360\""
+        setProperty("archivesBaseName", "Insta Feed_v$versionName")
     }
 
     buildTypes {

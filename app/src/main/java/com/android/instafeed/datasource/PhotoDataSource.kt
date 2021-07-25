@@ -82,10 +82,4 @@ class PhotoDataSource(
 
     fun refresh() =
         this.invalidate()
-
-    fun retryFailedQuery() {
-        val prevQuery = retryQuery
-        retryQuery = null
-        prevQuery?.invoke()
-    }
 }
